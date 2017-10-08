@@ -4,4 +4,4 @@ project(Client)
 set(CMAKE_C_STANDARD 99)
 
 set(SOURCE_FILES main.c)
-add_executable(Client ${SOURCE_FILES})
+add_executable(clientFTP ${SOURCE_FILES})

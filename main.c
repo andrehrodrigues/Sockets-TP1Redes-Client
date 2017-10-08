@@ -13,11 +13,13 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in serverAddress;
     struct hostent *server;
     int bufferSize;
-    char* nomeArquivo;
+    char *nomeArquivo;
 
     //Parameter check.
     if (argc < 5) {
-        fprintf(stderr, "ERROR: Number of parameters incorrect. Expected: %s <hostname> <port> <file_name> <buffer_size>\n", argv[0]);
+        fprintf(stderr,
+                "ERROR: Number of parameters incorrect. Expected: %s <hostname> <port> <file_name> <buffer_size>\n",
+                argv[0]);
         exit(0);
     }
 
@@ -71,6 +73,7 @@ int main(int argc, char *argv[]) {
     requestedFile = fopen(nomeArquivo, "w+");
 
     //Read response
+
     do {
 
         //Get package from the host.
@@ -84,7 +87,7 @@ int main(int argc, char *argv[]) {
         }
 
         //If the request was succesful write to file.
-        if ( n > 0 && buffer != NULL && strlen(buffer) > 0){
+        if (n > 0 && buffer != NULL && strlen(buffer) > 0) {
             fputs(buffer, requestedFile);
         }
 
@@ -93,6 +96,7 @@ int main(int argc, char *argv[]) {
     close(clientSocket);
 
     fclose(requestedFile);
+
 
     return 0;
 }
